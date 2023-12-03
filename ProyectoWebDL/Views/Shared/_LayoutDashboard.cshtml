@@ -1,0 +1,94 @@
+﻿﻿﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ProyectoWebDL</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ProyectoWebDL.styles.css" asp-append-version="true" />
+    @*Iconos*@
+    <script src="https://kit.fontawesome.com/3cdd98c6f1.js" crossorigin="anonymous"></script>
+    
+</head>
+<body>
+
+    <header>
+        <nav class="navbar" style="background-color: #4A4E69;">
+            <div class="container-fluid">
+                <a class="navbar-brand">Navbar</a>
+                <div class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-danger" type="submit">Salir</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-secondary">
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                    <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <span class="fs-4 d-none d-sm-inline">Bienvenido</span>
+                    </a>
+                    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                   
+                        <li>
+                            <a asp-controller="Home" asp-action="Index" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-Info"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5">Inicio</span>
+                            </a>
+                        </li>
+                        <li>
+                        <li>
+                            <a asp-controller="Libro" asp-action="Index" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-Info"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5">Libros</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-controller="Usuario" asp-action="Index" class="nav-link px-0 align-middle ">
+                                <i class="fs-4 bi-Contactos"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5">Usuarios</span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a asp-controller="Rol" asp-action="Index" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-Productos"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5">Productos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5">Mercado negro</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="dropdown pb-4">
+                        
+                        <ul class="dropdown-menu dropdown-menu-Black text-small shadow">
+                            <li><a class="dropdown-item" href="#">Proyecto Nuevo...</a></li>
+                            <li><a class="dropdown-item" href="#">Opciones</a></li>
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Salir</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

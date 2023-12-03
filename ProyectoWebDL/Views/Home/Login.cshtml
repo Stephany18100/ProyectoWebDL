@@ -1,0 +1,81 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="container">
+
+    <div class="form-group mt-3">
+        <h2>Login to Your Account</h2>
+
+        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-5">
+            <input type="text" class="form-control" id="user">
+        </div>
+    </div>
+    <div class="form-group mt-3">
+        <label for="password" class="col-sm-2 col-form-label">Password</label>
+        <div class="col-sm-5">
+            <input type="password" class="form-control" id="password">
+        </div>
+        <p id="parrafo1"></p>
+    </div>
+    <div id="FormLog">
+
+        <button type="submit" id="Login" class="btn btn-success d-block">Iniciar</button>
+
+    </div>
+
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#Login").click(function () {
+
+            var user = $("#user").val();
+            var password = $("#password").val();
+
+            alert(user)
+            console.log(user)
+
+            $.ajax({
+                url: "/Home/LoginUser",
+                type: "POST",
+                data: {
+                    "user": user,
+                    "password": password
+                },
+                dataType: "json",
+                success: function (response) {
+                    console.log(response)
+
+                    if (response.success == true) {
+
+                        //debugger
+                        if (response.admin == true) {
+                            window.location.href = "/Articulo/Index";
+                        }
+                        else {
+
+
+                            window.location.href = "/Articulo/IndexCopia";
+                        }
+
+                    }
+                    else
+
+                        $("#parrafo1").html("<div  class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Usuario o contraseña incorrecto</strong> Intentalo de nuevo.</div>");
+
+                },
+                error: function () {
+                    console.log('Login Fail Xc   !!!');
+                }
+            });
+        });
+
+
+
+
+    });
+
+</script>

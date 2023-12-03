@@ -1,0 +1,48 @@
+﻿@model ProyectoWebDL.Models.Entities.Libro
+@{
+    Layout = "_LayoutDashboard";
+}
+<div class="container-fluid">
+    <div class="col-sm-8">
+        <div class="card border">
+            <div class="card-header bg-dark">
+                <h1 class="text-white"><strong>Editar libro</strong></h1>
+
+            </div>
+
+            <div class="card-body">
+
+                <form asp-action="Editar" method="post">
+
+
+                    @*Id del articulo oculto*@
+
+                    <input type="hidden" asp-for="PkLibro" />
+
+                    <div class="form-group">
+                        <label asp-for="Titulo" class="control-label"></label>
+                        <input asp-for="Titulo" class="form-control" placeholder="Ingresa el titulo" required />
+
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Descripcion" class="control-label"></label>
+                        <input asp-for="Descripcion" class="form-control" placeholder="Ingresa el descripción" required />
+                    </div>
+
+                    @*<div class="form-group">
+                    <label asp-for="Images" class="control-label"></label>
+                    <input asp-for="Images" class="form-control" type="number" placeholder="Ingresa la imagen" required />
+                    </div>*@
+
+                    <div class="form-group mt-3">
+                        <button type="submit" class="btn btn-secondary d-block mx-auto"><i class="bi bi-person-fill"></i> Guardar</button>
+                    </div>
+
+                </form>
+
+                <a asp-controller="Libro" asp-action="Index">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
